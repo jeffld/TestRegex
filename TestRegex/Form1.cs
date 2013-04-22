@@ -67,5 +67,28 @@ namespace TestRegex
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string strStorefrontOrderID;
+            string strItemDataXMLFullName;
+
+            txtMatch.Text = "";
+
+            strItemDataXMLFullName = txtSource.Text;
+            
+            int iFirstIndex = strItemDataXMLFullName.LastIndexOf("Order.") + 6;
+            int iLastIndex = strItemDataXMLFullName.LastIndexOf(".ItemData.");
+            if (iFirstIndex != -1 && iLastIndex != -1)
+            {
+                int iSubstringLength = iLastIndex - iFirstIndex;
+                strStorefrontOrderID = strItemDataXMLFullName.Substring(iFirstIndex, iSubstringLength);
+                txtMatch.Text = strStorefrontOrderID.ToString();
+            }
+            else
+            {
+                txtMatch.Text = "No Match";
+            }
+        }
     }
 }
