@@ -90,5 +90,21 @@ namespace TestRegex
                 txtMatch.Text = "No Match";
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string strItemDataXMLFullName;
+            string[] strArrValues;
+
+            strItemDataXMLFullName = "Order.20250624.ItemData.20152334.xml";
+            
+
+            strArrValues = strItemDataXMLFullName.Split('.');
+            if (strArrValues.Length > 0)
+            {
+                txtMatch.Text = strArrValues[1];
+            }
+            
+        }
     }
 }
